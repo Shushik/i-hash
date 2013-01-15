@@ -243,7 +243,9 @@
                     // For the regular values
                     case 'number':
                     case 'string':
-                        value = value;
+                        if (encodeURIComponent) {
+                            value = encodeURIComponent(value);
+                        }
                     break;
 
                     default:
