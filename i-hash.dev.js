@@ -1,4 +1,4 @@
-;Affota._modules.hash = (function() {
+;JHE = (function() {
 
     /**
      * @page        http://github.com/Shushik/i-hash/
