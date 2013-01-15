@@ -54,7 +54,6 @@
                     if (value) {
                         this.set(alias, value);
                     } else {
-                        console.log(alias, this.get(alias));
                         return this.get(alias);
                     }
                 }
