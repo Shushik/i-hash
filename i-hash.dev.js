@@ -113,7 +113,11 @@
              */
             get : function(alias) {
                 if (this.params[alias]) {
-                    return this.params[alias];
+                    if (decodeURIComponent) {
+                        return decodeURIComponent(this.params[alias]);
+                    } else {
+                        return this.params[alias];
+                    }
                 }
 
                 return '';
