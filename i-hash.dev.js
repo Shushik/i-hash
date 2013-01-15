@@ -154,6 +154,8 @@
             /**
              * Parse the hash part of the url
              *
+             * @private
+             *
              * @this   {Hash}
              * @return {undefined}
              */
@@ -181,6 +183,8 @@
             /**
              * Join the params into a hash string
              *
+             * @private
+             *
              * @this   {Hash}
              * @return {undefined}
              */
@@ -192,7 +196,7 @@
                     value = '';
 
                 for (alias in this.params) {
-                    value = this.params[alias];
+                    value = this._value2string(this.params[alias]);
 
                     if (alias) {
                         if (pos > 0) {
@@ -209,6 +213,8 @@
             },
             /**
              * 
+             *
+             * @private
              *
              * @this   {Hash}
              * @param  {undefined|boolean|number|string|object}
