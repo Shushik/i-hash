@@ -1,4 +1,4 @@
-;JHE = (function() {
+;Hash = (function() {
 
     /**
      * @page        http://github.com/Shushik/i-hash/
@@ -89,6 +89,25 @@
                 return this;
             },
             /**
+             * Set multiple params
+             *
+             * @this   {Hash}
+             * @param  {object}
+             * @return {Hash}
+             */
+            mset : function(params) {
+                var
+                    alias = '';
+
+                if (typeof params == 'object') {
+                    for (alias in params) {
+                        this.set(alias, params[alias]);
+                    }
+                }
+
+                return this;
+            },
+            /**
              * Remove a param
              *
              * @this   {Hash}
@@ -114,13 +133,22 @@
             get : function(alias) {
                 if (this.params[alias]) {
                     if (decodeURIComponent) {
-                        return decodeURIComponent(this.params[alias]);
+                        return unescape(decodeURIComponent(this.params[alias]));
                     } else {
                         return this.params[alias];
                     }
                 }
 
                 return '';
+            },
+            /**
+             * Read all the params
+             *
+             * @this   {Hash}
+             * @return {object}
+             */
+            mget : function() {
+                return this.params;
             },
             /**
              * Read a param alias by value
